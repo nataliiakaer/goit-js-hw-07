@@ -1,4 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
+
 // Change code below this line
 
 const galleryListEl = document.querySelector(".gallery");
@@ -26,10 +27,30 @@ function createImageItemMurkup(galleryItems) {
 }
 
 function onImageClick(evt) {
+  evt.preventDefault();
   const isSelectedImageEl = evt.target.classList.contains("gallery__image");
 
   if (!isSelectedImageEl) {
     return;
   }
-  console.log(evt.target);
+
+  const modal = basicLightbox.create(
+    `<img class="gallery__image"
+     src="${evt.target.dataset.source}" />`,
+    {
+      onShow: (modal) => {
+        window.addEventListener("keydown", keydownEsc);
+      },
+      onClose: (modal) => {
+        window.removeEventListener("keydown", keydownEsc);
+      },
+    }
+  );
+
+  function keydownEsc(event) {
+    if (event.key === "Escape" && basicLightbox.visible()) {
+      modal.close();
+    }
+  }
+  modal.show();
 }
