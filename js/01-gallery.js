@@ -36,7 +36,7 @@ function onImageClick(evt) {
 
   const modal = basicLightbox.create(
     `<img class="gallery__image"
-     src="${evt.target.dataset.source}" />`,
+      src="${evt.target.dataset.source}" />`,
     {
       onShow: (modal) => {
         window.addEventListener("keydown", keydownEsc);
