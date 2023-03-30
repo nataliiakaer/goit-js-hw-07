@@ -24,8 +24,13 @@ function createImageItemMurkup(galleryItems) {
 
 function onImageClick(evt) {
   evt.preventDefault();
+  const isSelectedImageEl = evt.target.classList.contains("gallery__image");
+
+  if (!isSelectedImageEl) {
+    return;
+  }
 }
-let galleryLargeImg = new SimpleLightbox(".gallery a", {
+new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
   scrollZoom: false,
