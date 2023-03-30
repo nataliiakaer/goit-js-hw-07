@@ -24,9 +24,9 @@ function createImageItemMurkup(galleryItems) {
 
 function onImageClick(evt) {
   evt.preventDefault();
-  var galleryLargeImg = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionDelay: 250,
-    scrollZoom: false,
-  });
 }
+let galleryLargeImg = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  scrollZoom: false,
+});
